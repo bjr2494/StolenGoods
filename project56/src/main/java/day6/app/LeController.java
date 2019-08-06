@@ -1,5 +1,7 @@
 package day6.app;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,11 +36,12 @@ public class LeController {
 	
 	@GetMapping("/login")
 	public String login(@ModelAttribute("loginTry")LoginTry loginTry) {
+		thief.setUsername("");
 		return "login";
 	}
 	
 	@PostMapping("/timeline")
-	public String timeline(@ModelAttribute("loginTry")LoginTry loginTry, RedirectAttributes redirect, Model model) {
+	public String timeline(LoginTry loginTry, RedirectAttributes redirect, Model model) {
 		if (this.thiefLikeLogin(loginTry.getUsername(), (Hasher.hash(loginTry.getPassword())))) {
 			thief.thiefAs(loginTry.getUsername());
 			thief.setUsername(loginTry.getUsername());
@@ -77,7 +80,7 @@ public class LeController {
 	}
 	
 	@PostMapping("/old")
-	public String old(@ModelAttribute("potentialGood") StolenGood potentialGood, Errors errors, Model model) {
+	public String old(@ModelAttribute("potentialGood") @Valid StolenGood potentialGood, Errors errors, Model model) {
 		if (errors.hasErrors())
 			return "new";
 		else {

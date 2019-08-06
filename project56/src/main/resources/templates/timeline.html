@@ -13,13 +13,14 @@
   <body>
   
   <h1>
-  	Hello again, <span data-th-text="${loginTry.username}"></span>
+  	Hello again, <span data-th-text="${@thief.username}"></span>
   </h1>
 
 	<h2>Here are some of our written-about goods</h2>
 	<table class="table">
 		<thead>
 			<tr>
+				<th scope="col">Thief</th>
 				<th scope="col">Stolen Good</th>
 				<th scope="col">Victim</th>
 				<th scope="col">Description</th>

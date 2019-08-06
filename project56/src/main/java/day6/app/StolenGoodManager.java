@@ -8,11 +8,11 @@ public class StolenGoodManager {
 	
 	private List<StolenGood> stolenGoods;
 	
-	public List<String> genericComments = new LinkedList<>(Arrays.asList("comment1", "comment2", "comment3"));
-	public List<String> mayoComments = new LinkedList<>(Arrays.asList("Isn't that word spelled with like four Ns?",
+	private List<String> genericComments = new LinkedList<>(Arrays.asList("comment1", "comment2", "comment3"));
+	private List<String> mayoComments = new LinkedList<>(Arrays.asList("Isn't that word spelled with like four Ns?",
 			"I change the spelling of words ALL the time."));
-	public List<String> walletComments = new LinkedList<>(Arrays.asList("I have a lot of empty wallets",
-			"Uhh why not use the word billfold to avoid confusion? To me a wallet is a mini wall.."));
+	private List<String> walletComments = new LinkedList<>(Arrays.asList("I have a lot of empty wallets",
+			"Uhh why not use the word billfold to avoid confusion? To me a wallet is a mini wall..."));
 
 	public StolenGoodManager() {
 		StolenGood generic = new StolenGood("ButchCassidy", "name", "victim", "description", genericComments);
@@ -28,6 +28,18 @@ public class StolenGoodManager {
 		return stolenGoods;
 	}
 	
+	public List<String> getGenericComments() {
+		return genericComments;
+	}
+
+	public List<String> getMayoComments() {
+		return mayoComments;
+	}
+
+	public List<String> getWalletComments() {
+		return walletComments;
+	}
+
 	public void fullyAddGood(StolenGood sGood) {
 		this.stolenGoods.add(sGood);	
 	}
